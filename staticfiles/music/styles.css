@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    color: #333;
+}
+
+header, section, footer {
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.song, .request {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+footer a {
+    margin: 0 10px;
+    color: #3498db;
+    text-decoration: none;
+}

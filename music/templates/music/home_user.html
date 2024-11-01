@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Home - MuzikPlayz</title>
+    <link rel="stylesheet" href="{% static 'music/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to MuzikPlayz</h1>
+    </header>
+
+    <section>
+        <h2>Download Music</h2>
+        
+        <!-- Song List for Regular Users (No Delete Option) -->
+        {% for song in songs %}
+            <div class="song">
+                <h3>{{ song.title }} - {{ song.artist }}</h3>
+                <a href="{{ song.file.url }}" download class="btn">Download</a>
+            </div>
+        {% empty %}
+            <p>No songs available.</p>
+        {% endfor %}
+    </section>
+
+    <footer>
+        <a href="{% url 'make_request' %}" class="btn">Request a Song</a>
+        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn">Logout</button>
+        </form>
+    </footer>
+</body>
+</html>

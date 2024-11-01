@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Home - MuzikPlayz</title>
+    <link rel="stylesheet" href="{% static 'music/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to MuzikPlayz (Admin)</h1>
+    </header>
+    
+    <section>
+        <h2>Admin Dashboard</h2>
+        <p>Here you can manage uploads, requests, and view all content.</p>
+        
+        <!-- Song List with Delete Option for Admin -->
+        <h2>Uploaded Songs</h2>
+        {% for song in songs %}
+            <div class="song">
+                <h3>{{ song.title }} - {{ song.artist }}</h3>
+                <a href="{{ song.file.url }}" download class="btn">Download</a>
+
+                {% if user.is_superuser %}
+                    <!-- Delete option visible only to admin -->
+                    <a href="{% url 'delete_song' song.id %}" class="btn">Delete</a>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>No songs available.</p>
+        {% endfor %}
+    </section>
+    
+    <footer>
+        <a href="{% url 'make_request' %}" class="btn">Request a Song</a>
+        <a href="{% url 'upload_song' %}" class="btn">Upload a Song</a>
+        <a href="{% url 'view_requests' %}" class="btn">View Song Requests</a>
+
+        <!-- Logout Button -->
+        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn">Logout</button>
+        </form>
+    </footer>
+</body>
+</html>
