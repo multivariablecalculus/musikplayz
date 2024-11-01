@@ -43,7 +43,6 @@ autobahn==22.7.1
 autocommand==2.2.2
 Automat==22.10.0
 Babel==2.14.0
-backdoor-factory==0.0.0
 backoff==2.2.1
 base58==1.0.3
 bcrypt==4.1.2
