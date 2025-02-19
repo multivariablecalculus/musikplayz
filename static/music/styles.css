@@ -1,0 +1,117 @@
+/* General styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a2e;  /* Dark background */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+    background-color: #0f0f1a;  /* Deep dark blue */
+    padding: 20px;
+    text-align: center;
+    color: #d4afeb;  /* Soft violet */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Main content area styling */
+section, footer {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: #2e2e3e;  /* Slightly lighter dark background */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Song item styling */
+.song, .request {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    margin-bottom: 10px;
+}
+
+.song h3, .request h3 {
+    color: #cba6f7;  /* Soft violet for headings */
+}
+
+/* Link styling */
+a {
+    color: #8a2be2;  /* Violet */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #b19cd9;  /* Light purple on hover */
+}
+
+/* Button styling */
+button, .btn {
+    background-color: #4b0082; /* Deep purple */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button:hover, .btn:hover {
+    background-color: #9932cc; /* Lighter violet */
+}
+
+/* Footer links styling */
+footer a.btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+}
+
+/* Center-align login page */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-box {
+    background-color: #2e2e3e;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.login-box h2 {
+    color: #d4afeb;
+    margin-bottom: 20px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #1a1a2e;
+    color: #ffffff;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+}

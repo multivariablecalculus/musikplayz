@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Home - MuzikPlayz</title>
+    <link rel="stylesheet" href="{% static 'music/styles.css' %}">
+    <style>
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .search-container input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-container button {
+            padding: 10px;
+            border: none;
+            background-color: #4b0082;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to MuzikPlayz</h1>
+    </header>
+
+    <section>
+        <h2>Download Music</h2>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for songs...">
+            <button onclick="searchSongs()">Search</button>
+        </div>
+        
+        <!-- Song List for Regular Users (No Delete Option) -->
+        <div id="songList">
+            {% for song in songs %}
+                <div class="song">
+                    <h3>{{ song.title }} - {{ song.artist }}</h3>
+                    <a href="{{ song.file.url }}" download class="btn">Download</a>
+                </div>
+            {% empty %}
+                <p>No songs available.</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer>
+        <a href="{% url 'make_request' %}" class="btn">Request a Song</a>
+        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn">Logout</button>
+        </form>
+    </footer>
+
+    <script>
+        function searchSongs() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const songs = document.querySelectorAll('#songList .song');
+            songs.forEach(song => {
+                const title = song.querySelector('h3').innerText.toLowerCase();
+                if (title.includes(input)) {
+                    song.style.display = '';
+                } else {
+                    song.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

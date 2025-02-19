@@ -1,0 +1,9 @@
+<h2>Song Requests</h2>
+{% for req in requests %}
+    <div class="request">
+        <h3>Requested by: {{ req.username }}</h3>
+        <p>{{ req.request_text }}</p>
+    </div>
+{% empty %}
+    <p>No requests available.</p>
+{% endfor %}
